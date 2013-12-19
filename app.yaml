@@ -1,0 +1,11 @@
+application: fastmvc
+version: 1
+runtime: php
+api_version: 1
+
+handlers:
+- url: /
+  script: index.php
+
+- url: /public/
+  static_dir: public/
