@@ -138,11 +138,11 @@ class CBase {
     }
     
     function loadModel($names){
-        Util::loadPHPFile($names, '/model/');
+        Loader::includeFile($names, '/model/');
     }
     
     function loadLib($names){
-        Util::loadPHPFile($names, '/common/lib/');
+        Loader::includeFile($names, '/common/lib/');
     }
 
 }
