@@ -29,3 +29,4 @@ http://localhost/?c=test/test(如果没有c参数，那么默认路由到CIndex�
 
 Change List:
 beta1.0
+
