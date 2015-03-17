@@ -52,12 +52,11 @@ class DB {
     function connect() {
         $this->close();
 
-        $server = $this->host . ($this->port ? ":{$this->port}" : '');
-        $this->link = mysqli_connect($server, $this->user, $this->password);
+        $this->link = mysqli_connect($this->host, $this->user, $this->password, '', $this->port);
 
         if (empty($this->link)) {
-            $this->reportError("<!-- Can not connect database server [{$server}]<br>\n -->");
-            return;
+            //$this->reportError("<!-- Can not connect database server [{$server}]<br>\n -->");
+            return false;
         }
 
         $version = floatval(mysqli_get_server_info($this->link));
@@ -69,8 +68,8 @@ class DB {
 
         $databaseSelected = mysqli_select_db($this->link, $this->databaseName);
         if (!$databaseSelected) {
-            $this->reportError("<!-- Can not open database [{$this->databaseName}] @ [{$server}]<br>\n -->");
-            return;
+            //$this->reportError("<!-- Can not open database [{$this->databaseName}] @ [{$server}]<br>\n -->");
+            return false;
         }
     }
 
